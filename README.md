@@ -98,8 +98,10 @@ const promise = processAndRecover(callback, recoverCheck, recoverOptions);
 
 - `callback`: `Function` - The async process function.
 - `recoverCheck`: `Function` - The function to check if need to retry when the error happen.
-  - `isRecovering`: `Boolean` - The flag to check if the error is in recover flow.
-  - `rejectWithValue`: `Function` - The function to reject the promise with special value.
+  - `error`: `any` - The error thrown by the async process function.
+  - `recoverCheckParams`: `Object` - The params for recover check.
+    - `isRecovering`: `Boolean` - The flag to check if the error is in recover flow.
+    - `rejectWithValue`: `Function` - The function to reject the promise with special value.
 - `recoverOptions`: `Object` - The options for retry mechanism.
   - `recoverLimit`: `Number` - The max retry times, default is `3`.
   - `strategy`: `String` - The retry strategy, default is `interval`. Support `interval` and `timeout`.
